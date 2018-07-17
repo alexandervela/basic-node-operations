@@ -1,0 +1,125 @@
+Exercises
+
+1. Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+
+
+A:
+sort output - 
+```
+done(data);
+           if (err) throw err;
+       break;
+       break;
+       commandLibrary.cat(userInputArray.slice(1));
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       const fileName = fullPath[0];
+       done(userInput);
+       fs.readFile(fileName, (err, data) => {
+       });
+     case "cat":
+     case "echo":
+     process.stdout.write('\nprompt > ');
+     process.stdout.write(output);
+   "cat": function(fullPath) {
+   "echo": function(userInput) {
+   const command = userInputArray[0];
+   const userInputArray = userInput.split(" ");
+   switch (command) {
+   }
+   }
+   },
+ const commandLibrary = {
+ function done(output) {
+ function evaluateCmd(userInput) {
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+ }
+ }
+ };
+const fs = require("fs");
+```
+sort - Running the command "sort commands.js" in your terminal returns the file sorted alphabetically by line. This is why the output is returning the contents of commands.js sorted alphabetically.
+
+wc output - 
+```
+35      73     833 commands.js
+```
+wc - Running the command "wc commands.js" in your terminal prints the newline, word, and byte counts for a file. This is why the output is returning 35 because the commands.js file has 35 lines, 73 because the file contains 73 words, and lastly 833 is the number of characters in the file including the newline character that is attached to the end.
+
+uniq output -
+```
+const fs = require("fs");
+
+ function done(output) {
+     process.stdout.write(output);
+     process.stdout.write('\nprompt > ');
+ }
+
+ function evaluateCmd(userInput) {
+   const userInputArray = userInput.split(" ");
+   const command = userInputArray[0];
+   switch (command) {
+     case "echo":
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       break;
+     case "cat":
+       commandLibrary.cat(userInputArray.slice(1));
+       break;
+   }
+ }
+
+ const commandLibrary = {
+   "echo": function(userInput) {
+       done(userInput);
+   },
+   "cat": function(fullPath) {
+       const fileName = fullPath[0];
+       fs.readFile(fileName, (err, data) => {
+           if (err) throw err;
+           done(data);
+       });
+   }
+ };
+
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+```
+uniq - Running the command "uniq commands.js" sorts each line in the file and only returns different lines. Removing any lines that are the same as the file above from the output. The file commands.js does not contain any lines of code that are the same as the line of code above it, which is why the command is outputting the entire contents of the file.
+
+2. Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+
+A:
+Command ran - echo "a
+e
+b
+c
+c
+d" | sort | uniq
+Command Output -
+```
+a
+b
+c
+d
+e
+```
+Explain - The first command I ran echo simply outputs the string I provided, then using the output of echo I ran a sort command to sort the function alphabetically by line. And lastly using the output from sort, I ran the uniq command which removed any lines that were the same as the line above it from the output.
+
+6. In this checkpoint, you encountered built-in JavaScript methods as well as the new ES6 syntax. Review the information below before attempting the programming challenge.
+
+A:
+Reverse String -
+```
+var test = "I'm learning to program algorithms!";
+
+function reverseString(inputString) {
+  var splitString = inputString.split(" ");
+  var arr = [];
+  splitString.forEach((item) => {
+    arr.push(item.split('').reverse().join(''));
+  });
+  return arr.join(' ');
+}
+console.log(reverseString(test));
+```
+
